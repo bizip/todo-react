@@ -31,19 +31,23 @@ const TodoContainer = () => {
         });
     };
 
-    const delTodo = id => {
-        let filteredTodo = todos.filter((todo) => {
-            return todo.id !== id;
-        });
+    const delTodo = (id) => {
+        const filteredTodo = todos.filter((todo) => todo.id !== id);
         setTodos(filteredTodo);
     };
-
-
+    const addTodoItem = (title) => {
+        let newTodo = {
+            id: 4,
+            title,
+            completed: false,
+        };
+        setTodos([...todos, newTodo]);
+    };
     return (
         <div className="container">
             <div className="inner">
                 <Header />
-                <InputTodo />
+                <InputTodo addTodoProps={addTodoItem} />
                 <TodoList deleteTodoProps={delTodo} todos={todos} handleChangeProps={handleChange} />
             </div>
         </div>
