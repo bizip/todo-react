@@ -2,21 +2,22 @@ import React, { useState } from 'react';
 import Header from './Header';
 import InputTodo from './InputTodo';
 import TodoList from './TodosList';
+import { v4 as uuidv4 } from "uuid";
 
 const TodoContainer = () => {
     const [todos, setTodos] = useState([
         {
-            id: 1,
+            id: uuidv4(),
             title: 'Setup development environment',
             completed: true,
         },
         {
-            id: 2,
+            id: uuidv4(),
             title: 'Develop website and add content',
             completed: false,
         },
         {
-            id: 3,
+            id: uuidv4(),
             title: 'Deploy to live server',
             completed: false,
         },
@@ -36,8 +37,8 @@ const TodoContainer = () => {
         setTodos(filteredTodo);
     };
     const addTodoItem = (title) => {
-        let newTodo = {
-            id: 4,
+        const newTodo = {
+            id: uuidv4(),
             title,
             completed: false,
         };
