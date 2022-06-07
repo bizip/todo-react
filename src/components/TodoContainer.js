@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Header from './Header';
+import InputTodo from './InputTodo';
 import TodoList from './TodosList';
 
 const TodoContainer = () => {
@@ -24,17 +25,29 @@ const TodoContainer = () => {
         todos.map((todo) => {
             if (todo.id === id) {
                 todo.completed = !todo.completed;
-                console.log(todo)
+                console.log(todo);
             }
             return todo;
-        })
-
+        });
     };
+
+    const delTodo = id => {
+        let filteredTodo = todos.filter((todo) => {
+            return todo.id !== id;
+        });
+        setTodos(filteredTodo);
+    };
+
+
     return (
-        <div>
-            <Header />
-            <TodoList todos={todos} handleChangeProps={handleChange} />
+        <div className="container">
+            <div className="inner">
+                <Header />
+                <InputTodo />
+                <TodoList deleteTodoProps={delTodo} todos={todos} handleChangeProps={handleChange} />
+            </div>
         </div>
+
     );
 };
 
