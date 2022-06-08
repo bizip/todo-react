@@ -47,9 +47,11 @@ const TodoContainer = () => {
         todos.map(todo => {
             if (todo.id === id) {
                 todo.title = updatedTitle;
+                setTodos([...todos]);
             }
             return todo;
         })
+
 
     }
 
