@@ -1,16 +1,16 @@
-/* eslint-disable react/destructuring-assignment */
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 
 const InputTodo = (props) => {
   const [title, setTitle] = useState('');
+  const { addTodoProps } = props;
   const handleChange = (e) => {
     e.preventDefault();
     setTitle(e.target.value);
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    props.addTodoProps(title);
+    addTodoProps(title);
     setTitle('');
   };
   return (

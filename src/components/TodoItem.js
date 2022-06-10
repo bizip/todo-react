@@ -1,5 +1,4 @@
 /* eslint-disable react/require-default-props */
-/* eslint-disable react/destructuring-assignment */
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import styles from './TodoItem.module.css';
@@ -8,6 +7,9 @@ const TodoItem = (props) => {
   const [editing, setEditing] = useState(false);
   const [editedData, setEditingData] = useState('');
   const [id, setId] = useState(0);
+  const {
+    checked, setUpdate, handleChangeProps, title, deleteTodoProps,
+  } = props;
 
   const viewMode = {};
   const editMode = {};
@@ -18,7 +20,7 @@ const TodoItem = (props) => {
   }
 
   const handleEditing = () => {
-    const { title, id } = props.checked;
+    const { title, id } = checked;
     setEditing(true);
     setEditingData(title);
     setId(id);
@@ -32,16 +34,15 @@ const TodoItem = (props) => {
 
   const handleChange = (e) => {
     setEditingData(e.target.value);
-    props.setUpdate(e.target.value, id);
+    setUpdate(e.target.value, id);
   };
   return (
     <ul>
       <li>
         <div onDoubleClick={handleEditing} style={{ viewMode }}>
-          <input type="checkbox" onChange={() => { props.handleChangeProps(props.checked.id); }} />
-          {props.title}
-          {' '}
-          <button type="button" onClick={() => props.deleteTodoProps(props.checked.id)}>Delete</button>
+          <input type="checkbox" onChange={() => { handleChangeProps(checked.id); }} />
+          {title}
+          <button type="button" onClick={() => deleteTodoProps(checked.id)}>Delete</button>
         </div>
         <input
           type="text"

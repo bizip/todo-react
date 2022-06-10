@@ -3,7 +3,6 @@ import Navbar from './Navbar';
 
 const AboutAuthor = () => (
   <div>
-    {' '}
     <Navbar />
     <h1>About Author</h1>
     <p>

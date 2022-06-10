@@ -7,7 +7,6 @@ const defaultProps = {};
 
 const AboutApp = () => (
   <div>
-    {' '}
     <Navbar />
     <h1>About App</h1>
     <p>

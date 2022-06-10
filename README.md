@@ -1,8 +1,8 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Math magicians
+# Toodo App
 
-> "Math magicians" is a website for all fans of mathematics. It is a Single Page App (SPA) that allows users to: Make simple calculations. Read a random math-related
+> This app create todo list app using ReactJs and consolidate your knowledge about React, components, props, state, and hooks
 
 ## Built With
 
