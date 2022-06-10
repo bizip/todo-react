@@ -1,8 +1,10 @@
 import React from 'react';
+import Navbar from './Navbar';
 
 const AboutAuthor = () => (
   <div>
     {' '}
+    <Navbar />
     <h1>About Author</h1>
     <p>
       Prosciutto frankfurter bresaola, fatback filet mignon pastrami capicola.

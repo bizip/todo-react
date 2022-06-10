@@ -1,4 +1,5 @@
 import React from 'react';
+import Navbar from './Navbar';
 
 const propTypes = {};
 
@@ -7,6 +8,7 @@ const defaultProps = {};
 const AboutApp = () => (
   <div>
     {' '}
+    <Navbar />
     <h1>About App</h1>
     <p>
       Prosciutto frankfurter bresaola, fatback filet mignon pastrami capicola.
