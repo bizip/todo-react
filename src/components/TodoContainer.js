@@ -1,12 +1,10 @@
-import { Route, Routes, Switch } from 'react-router-dom';
+/* eslint-disable no-param-reassign */
 import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import Header from './Header';
 import InputTodo from './InputTodo';
 import TodoList from './TodosList';
 import Navbar from './Navbar';
-import About from '../functionBased/pages/About';
-import NotMatch from '../functionBased/pages/NotMatch';
 
 const TodoContainer = () => {
   const [todos, setTodos] = useState([
@@ -63,7 +61,12 @@ const TodoContainer = () => {
         <Navbar />
         <Header />
         <InputTodo addTodoProps={addTodoItem} />
-        <TodoList deleteTodoProps={delTodo} todos={todos} handleChangeProps={handleChange} setUpdate={setUpdate} />
+        <TodoList
+          deleteTodoProps={delTodo}
+          todos={todos}
+          handleChangeProps={handleChange}
+          setUpdate={setUpdate}
+        />
       </div>
     </div>
   );

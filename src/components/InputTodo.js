@@ -1,3 +1,5 @@
+/* eslint-disable react/destructuring-assignment */
+import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 
 const InputTodo = (props) => {
@@ -21,9 +23,13 @@ const InputTodo = (props) => {
         name="title"
         onChange={handleChange}
       />
-      <button className="input-submit">Submit</button>
+      <button type="submit" className="input-submit">Submit</button>
     </form>
   );
+};
+
+InputTodo.propTypes = {
+  addTodoProps: PropTypes.string.isRequired,
 };
 
 export default InputTodo;

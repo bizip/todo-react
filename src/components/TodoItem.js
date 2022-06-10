@@ -1,3 +1,6 @@
+/* eslint-disable react/require-default-props */
+/* eslint-disable react/destructuring-assignment */
+import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import styles from './TodoItem.module.css';
 
@@ -15,9 +18,10 @@ const TodoItem = (props) => {
   }
 
   const handleEditing = () => {
+    const { title, id } = props.checked;
     setEditing(true);
-    setEditingData(props.checked.title);
-    setId(props.checked.id);
+    setEditingData(title);
+    setId(id);
   };
 
   const handleUpdatedDone = (e) => {
@@ -37,7 +41,7 @@ const TodoItem = (props) => {
           <input type="checkbox" onChange={() => { props.handleChangeProps(props.checked.id); }} />
           {props.title}
           {' '}
-          <button onClick={() => props.deleteTodoProps(props.checked.id)}>Delete</button>
+          <button type="button" onClick={() => props.deleteTodoProps(props.checked.id)}>Delete</button>
         </div>
         <input
           type="text"
@@ -51,6 +55,17 @@ const TodoItem = (props) => {
       </li>
     </ul>
   );
+};
+
+TodoItem.propTypes = {
+  checked: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+  }),
+  deleteTodoProps: PropTypes.func,
+  handleChangeProps: PropTypes.func,
+  setUpdate: PropTypes.func,
+  title: PropTypes.string.isRequired,
 };
 
 export default TodoItem;
